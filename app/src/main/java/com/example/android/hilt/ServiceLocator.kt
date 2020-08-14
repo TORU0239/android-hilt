@@ -20,16 +20,12 @@ import android.content.Context
 import androidx.fragment.app.FragmentActivity
 import androidx.room.Room
 import com.example.android.hilt.data.AppDatabase
-import com.example.android.hilt.data.LogDao
 import com.example.android.hilt.data.LoggerLocalDataSource
 import com.example.android.hilt.navigator.AppNavigator
 import com.example.android.hilt.navigator.AppNavigatorImpl
 import com.example.android.hilt.util.DateFormatter
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class ServiceLocator @Inject constructor(private val logDao: LogDao) {
+class ServiceLocator(applicationContext: Context) {
 
     private val logsDatabase = Room.databaseBuilder(
         applicationContext,
